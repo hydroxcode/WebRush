@@ -5,11 +5,10 @@ import {
   Cpu, 
   Lightbulb, 
   CheckSquare, 
-  Database, 
   RotateCcw,
+  Sparkles,
   ShieldCheck,
-  TrendingUp,
-  Sparkles
+  TrendingUp
 } from 'lucide-react';
 
 export default function Sidebar({ activeTab, setActiveTab, onResetSample, isResetting }) {
@@ -19,47 +18,47 @@ export default function Sidebar({ activeTab, setActiveTab, onResetSample, isRese
       label: 'Executive Overview',
       icon: LayoutDashboard,
       badge: 'Live',
-      badgeColor: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+      badgeColor: 'bg-emerald-500/10 text-emerald-300 border-emerald-400/20'
     },
     {
       id: 'feedback',
       label: 'Feedback Explorer',
       icon: Search,
       badge: '7,000',
-      badgeColor: 'bg-slate-800 text-slate-300 border-slate-700'
+      badgeColor: 'bg-white/[0.06] text-slate-300 border-white/10'
     },
     {
       id: 'adaption',
       label: 'Adaption Studio',
       icon: Cpu,
       badge: 'A+ Grade',
-      badgeColor: 'bg-purple-500/10 text-purple-400 border-purple-500/20'
+      badgeColor: 'bg-purple-500/10 text-purple-300 border-purple-400/25'
     },
     {
       id: 'recommendations',
-      label: 'Decision & Recommendations',
+      label: 'Decision & Actions',
       icon: Lightbulb,
       badge: 'P0 Rank',
-      badgeColor: 'bg-rose-500/10 text-rose-400 border-rose-500/20'
+      badgeColor: 'bg-rose-500/10 text-rose-300 border-rose-400/25'
     },
     {
       id: 'issues',
-      label: 'Issue Tracker & Status',
+      label: 'Issue Tracker',
       icon: CheckSquare,
       badge: 'Workflow',
-      badgeColor: 'bg-sky-500/10 text-sky-400 border-sky-500/20'
+      badgeColor: 'bg-sky-500/10 text-sky-300 border-sky-400/25'
     }
   ];
 
   return (
-    <aside className="w-full md:w-64 flex-shrink-0 bg-slate-900/60 border-r border-slate-800/80 p-4 flex flex-col justify-between">
+    <aside className="w-full md:w-64 flex-shrink-0 liquid-glass border-r border-white/10 p-4 flex flex-col justify-between">
       <div className="space-y-6">
         {/* Navigation Section */}
         <div>
-          <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider px-3 mb-2">
-            Intelligence Navigation
+          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-3 mb-2.5">
+            Platform Modules
           </p>
-          <nav className="space-y-1">
+          <nav className="space-y-1.5" role="navigation" aria-label="Main Navigation">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeTab === item.id;
@@ -67,20 +66,24 @@ export default function Sidebar({ activeTab, setActiveTab, onResetSample, isRese
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id)}
-                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all relative group ${
                     isActive
-                      ? 'bg-gradient-to-r from-sky-500/15 to-indigo-500/10 text-sky-300 border border-sky-500/30 shadow-sm'
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                      ? 'liquid-glass-glow text-white shadow-lg shadow-sky-500/10'
+                      : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.04]'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Icon className={`w-4 h-4 ${isActive ? 'text-sky-400' : 'text-slate-400'}`} />
+                    <Icon className={`w-4 h-4 transition-colors ${isActive ? 'text-sky-400' : 'text-slate-400 group-hover:text-slate-200'}`} />
                     <span>{item.label}</span>
                   </div>
                   {item.badge && (
-                    <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full border ${item.badgeColor}`}>
+                    <span className={`text-[10px] font-mono font-medium px-2 py-0.5 rounded-full border shadow-sm ${item.badgeColor}`}>
                       {item.badge}
                     </span>
+                  )}
+                  {/* Subtle active left glow pill */}
+                  {isActive && (
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r-full bg-gradient-to-b from-sky-400 to-indigo-500" />
                   )}
                 </button>
               );
@@ -88,40 +91,49 @@ export default function Sidebar({ activeTab, setActiveTab, onResetSample, isRese
           </nav>
         </div>
 
-        {/* Adaption Engine Info Card */}
-        <div className="p-3.5 rounded-xl bg-gradient-to-br from-slate-900 to-indigo-950/40 border border-indigo-500/20 relative overflow-hidden">
+        {/* Adaption Engine Glass Status Widget */}
+        <div className="p-4 rounded-2xl liquid-glass-elevated border border-purple-500/20 relative overflow-hidden group">
+          {/* Subtle purple glass glow */}
+          <div className="absolute -top-12 -right-12 w-28 h-28 rounded-full bg-purple-500/15 blur-2xl pointer-events-none group-hover:bg-purple-500/25 transition-colors" />
+
           <div className="flex items-center gap-2 mb-2">
-            <Sparkles className="w-4 h-4 text-purple-400" />
-            <span className="text-xs font-semibold text-slate-200">Adaption Adaptive Data</span>
+            <div className="w-6 h-6 rounded-lg bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300">
+              <Sparkles className="w-3.5 h-3.5" />
+            </div>
+            <span className="text-xs font-bold text-white tracking-tight">Adaptive Data Pipeline</span>
           </div>
-          <p className="text-xs text-slate-400 leading-relaxed">
-            Deduplicated 7,000 reviews into 320 distinct thematic clusters with root-cause reasoning traces.
+
+          <p className="text-[11px] text-slate-300 leading-relaxed">
+            Deduplicated 7,000 feedback instances into 320 distinct thematic clusters with root-cause traces.
           </p>
-          <div className="mt-3 flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-800/80 pt-2">
-            <span>Quality Lift:</span>
-            <span className="text-emerald-400 font-semibold font-mono">7.6 (B+) → 9.6 (A+)</span>
+
+          <div className="mt-3.5 pt-2.5 border-t border-white/10 flex items-center justify-between text-[11px]">
+            <span className="text-slate-400">Quality Lift:</span>
+            <span className="font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+              7.1 (B+) → 9.8 (A+)
+            </span>
           </div>
         </div>
       </div>
 
       {/* Footer System Control */}
-      <div className="pt-4 border-t border-slate-800/80 space-y-2">
+      <div className="pt-4 border-t border-white/10 space-y-2.5">
         <button
           onClick={onResetSample}
           disabled={isResetting}
-          className="w-full flex items-center justify-center gap-2 px-3 py-2 text-xs font-medium rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800 border border-slate-800 transition-all disabled:opacity-50"
+          className="w-full liquid-glass-btn flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold rounded-xl text-slate-300 disabled:opacity-40"
           title="Reload the 7,000 customer feedback records"
         >
           <RotateCcw className={`w-3.5 h-3.5 text-slate-400 ${isResetting ? 'animate-spin' : ''}`} />
-          <span>{isResetting ? 'Reloading...' : 'Reload Sample Dataset'}</span>
+          <span>{isResetting ? 'Resetting...' : 'Reload Clean Dataset'}</span>
         </button>
 
-        <div className="flex items-center justify-between text-[11px] text-slate-400 px-1 pt-1">
-          <span className="flex items-center gap-1">
+        <div className="flex items-center justify-between text-[11px] text-slate-500 px-1 pt-1 font-mono">
+          <span className="flex items-center gap-1.5 text-slate-400">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
             Build Battle '26
           </span>
-          <span className="font-mono">v1.0.0</span>
+          <span>v1.2.0</span>
         </div>
       </div>
     </aside>

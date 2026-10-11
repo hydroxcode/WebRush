@@ -49,28 +49,39 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
-      {/* Top Navigation */}
-      <Navbar
-        onOpenAddModal={() => setIsAddModalOpen(true)}
-        onOpenUploadModal={() => setIsUploadModalOpen(true)}
-        onOpenReportModal={() => setIsReportModalOpen(true)}
-        activeTab={activeTab}
-        stats={stats}
-      />
+    <div className="min-h-screen bg-[#030712] text-slate-100 flex flex-col font-sans relative selection:bg-sky-500/30 selection:text-sky-200">
+      {/* Atmospheric Fluid Ambient Glow Orbs */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+        <div className="absolute -top-32 -left-32 w-[550px] h-[550px] rounded-full bg-gradient-to-br from-sky-500/20 via-indigo-600/15 to-transparent blur-[120px] animate-ambient-1" />
+        <div className="absolute top-1/4 -right-32 w-[500px] h-[500px] rounded-full bg-gradient-to-bl from-purple-500/15 via-pink-600/10 to-transparent blur-[130px] animate-ambient-2" />
+        <div className="absolute -bottom-32 left-1/3 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-cyan-500/15 via-blue-600/10 to-transparent blur-[140px] animate-ambient-1" />
+        {/* Subtle glass micro-grid pattern */}
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:28px_28px] opacity-60" />
+      </div>
 
-      {/* Main App Container */}
-      <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
-        {/* Sidebar */}
-        <Sidebar
+      {/* App Shell */}
+      <div className="relative z-10 flex flex-col min-h-screen">
+        {/* Top Navigation */}
+        <Navbar
+          onOpenAddModal={() => setIsAddModalOpen(true)}
+          onOpenUploadModal={() => setIsUploadModalOpen(true)}
+          onOpenReportModal={() => setIsReportModalOpen(true)}
           activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          onResetSample={handleResetSample}
-          isResetting={isResetting}
+          stats={stats}
         />
 
-        {/* Content View */}
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full">
+        {/* Main App Container */}
+        <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
+          {/* Sidebar */}
+          <Sidebar
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+            onResetSample={handleResetSample}
+            isResetting={isResetting}
+          />
+
+          {/* Content View */}
+          <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full">
           {activeTab === 'overview' && (
             <DashboardOverview 
               stats={stats} 
@@ -123,6 +134,7 @@ export default function App() {
         isOpen={isReportModalOpen}
         onClose={() => setIsReportModalOpen(false)}
       />
+      </div>
     </div>
   );
 }

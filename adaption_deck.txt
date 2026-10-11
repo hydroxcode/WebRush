@@ -1,0 +1,260 @@
+Welcome to the next generation of adaptive intelligence 
+© Adaption 2026
+1
+
+A program you're part of partnered with Adaption to give its builders real access to our platform. 
+Credits
+Already in your account, tied to the email this deck was sent to. Sign up and they're there.
+Premium access
+The full platform, the same access our closest partners get.
+A direct line
+Our researchers and engineers hang out in the Discord community and answer builders regularly.
+© Adaption 2026
+Yay! You're invited to build and train your own AI.
+
+2
+
+1
+About Adaption
+3
+
+Adaption is a platform that brings the data-optimization and model building techniques, typically reserved for frontier labs, to everyday teams. 
+© Adaption 2026
+
+Frontier AI should belong to everyone.
+A handful of companies build massive models optimized for generalized use cases, while
+everyone else is forced to adapt around them through prompting, workflows, and manual
+inter vention. 
+Adaption accelerates tools to build frontier AI.
+Adaption makes it easy to build your own frontier AI.
+
+Adaptive data makes your data AI visible and high quality for training.
+Autoscientist training automates training configurations to de risk poor outcomes. 
+
+ 
+
+© Adaption 2026
+To build a world where AI model innovation is not confined to a few large companies, but open to all enterprises. 
+
+A world where enterprises large and small are empowered to move beyond generic, frozen "black-box" AI models, and forge models that they own and control.
+
+A world where enterprise models continuously evolve over time to better suit their users, and do so extremely efficiently.
+
+We will work with our enterprise partners hand-in-glove to make this a reality.
+
+
+
+Private and Confidential
+We believe the future is you own intelligence, and AI is global first.
+
+Adaptive Data
+
+Data is the foundation of intelligence. We dynamically shape data at scale to target new objectives and rapidly scale quality.
+
+Adaptive Intelligence
+
+We are building the next generation of adaptive intelligence. Evolved for any industry, language or specialization.
+
+Adaptive Interfaces
+
+An innovation hub focused on re-imagining the interface of the human AI interaction.
+
+
+3 Adaptive Solutions
+
+Founded by industry-leading researchers
+
+Sara Hooker
+Co-founder
+100+ published research papers
+7 awards, including one Best Paper award for our Aya Model
+Outstanding Paper awards from SIGMOD and MLSys
+
+Single-GPU inference achieved industry-leading performance
+
+Over 20 foundation models launched on Cohere's Platform and partner platforms like Amazon Web Services (AWS), Microsoft Azure, Oracle, and Google Cloud
+© Adaption 2026
+Sudip Roy
+Co-founder
+8
+
+© Adaption 2026
+What that means for you
+You keep the weights
+
+What you train is yours. Download it, push it to Hugging Face or Kaggle, ship it and keep building long after the event ends.
+
+Not the same model as everyone else
+
+Every other team is prompting the same model. You can show up with one trained on your own data, shaped to your idea.
+Hours, not weeks
+
+The full training research loop, automated end-to-end. An idea in the morning can be an adapted, working model by the demo.
+
+9
+
+© Adaption 2026
+Now you have access to an integrated AI system! 
+
+2
+Adaptive Data
+11
+
+Whatever data you have (PDFs, spreadsheets, half-scraped JSON), Adaptive Data turns it into training-ready datasets. 
+
+No data at all? Describe what you want, and invent one from scratch.
+78%
+average quality gains
+across 44+ domains
+Finance, legal, medical, news, tech, etc.
+© Adaption 2026
+Pull from anywhere
+Local files, Hugging Face, or Kaggle, in a couple of clicks.
+Steer it
+Set tone, length, and safety rules as hard constraints.
+Expand it
+Natively into 242+ languages.
+Prove it
+Every dataset is graded before and after, so you can see the lift.
+Learn More
+12
+
+3
+AutoScientist
+13
+
+© Adaption 2026
++28.4%
+average gain in win rates 
+across all models 
+with AutoScientist
+Describe the behavior you want. AutoScientist runs the full model-training research loop end-to-end. Data and training recipes co-optimizing until the model converges on your goal.
+Hours, not weeks
+What used to take 2–6 weeks of expert trial-and-error now runs in an afternoon.
+Tiny AutoScientist
+Under-10B models for phones, robots, and edge deployments.
+Live Diagnostics
+Win-rate vs. the base model, loss, and learning-rate curves on every run.
+Export the weights
+Download them, or push straight to Hugging Face or Kaggle.
+Learn More
+14
+
+Raw Data
+Adaptive Data
+Adapted Dataset
+AutoScientist
+Trained Model
+Adaptive Data shapes the inputs. AutoScientist shapes the model. You own what comes out.
+© Adaption 2026
+Adaption Flow
+
+
+
+
+AutoScientist Leaderboard
+The AutoScientist Leaderboard ranks customized models built with AutoScientist based on domain-specific performance. See what the community is building and who's pushing the strongest models in each area. Simply run AutoScientist on your dataset in any of 40+ domains, complete the evaluation, and your model appears ranked on the leaderboard.
+
+See AutoScientist Leaderboard
+
+An AI that spots suspicious job postings before you hit “Apply.”
+A personal finance copilot that helps you with taxes, finances and budgeting.
+A model that turns complex data into charts people can actually understand.
+An AI analyst that turns overwhelming market news into the info you actually need to know.
+Build an AI plant doctor that helps figure out what’s going wrong with your crops.
+Build an AI that helps employees make sense of workplace rights and HR questions.
+© Adaption 2026
+What could you build?
+17
+
+© Adaption 2026
+What could you build?
+18
+
+4
+Get Started
+19
+
+© Adaption 2026
+Get started in four steps
+Sign up
+adaptionlabs.ai use the email this deck was sent to. Your credits are tied to it.
+
+
+1
+Check your credits
+They’re waiting in your account. Missing? Ping us in Discord and a human will fix it.
+
+
+
+2
+Run the quickstart
+docs.adaptionlabs.ai your first dataset or training run, in minutes.
+
+
+3
+Join the builders
+discord.gg/adaption questions answered, projects shown off.
+
+
+4
+
+Committed to the open ecosystem
+10,000+
+AutoScientist Trainings processed
+55,334,315
+Data artifacts processed
+Our Core Open Partners
+
+5
+Take it even further 
+22
+
+More support for you
+The hackathon
+is just the start
+
+If what you built deserves a longer life, there's a grant program for it. All three are open worldwide, reviewed on a rolling basis.
+Turning your project into a paper? 
+Check out our Research Grants
+Turning it into a company? 
+Check out Adaption for Startups
+Building for the public good? 
+Check out Public Sector Grant 
+
+© Adaption Labs 2026
+Universities in the research grant program
+
+Kaggle
+
+kaggle.com/organizations/adaption-labs
+The future belongs to the adaptive
+Don’t build alone!
+
+
+
+Blog
+
+adaptionlabs.ai/blog
+Hugging Face
+
+huggingface.co/adaptionlabs
+Discord
+
+discord.gg/adaption  
+Follow on X
+
+x.com/adaption_ai
+LinkedIn
+
+linkedin.com/company/adaption-labs/
+
+Happy Adapting!
+© Adaption 2026
+adaptionlabs.ai
+Sign in — your credits are waiting
+docs.adaptionlabs.ai
+Guides for every step
+discord.gg/adaption
+The builders' community
+26

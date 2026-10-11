@@ -25,5 +25,11 @@ if __name__ == "__main__":
     print("  API Docs available at:     http://127.0.0.1:8000/docs")
     print("=" * 65)
 
-    threading.Thread(target=open_browser, daemon=True).start()
-    uvicorn.run("backend.app.main:app", host="127.0.0.1", port=8000, reload=False)
+    host = os.environ.get("HOST", "127.0.0.1")
+    port = int(os.environ.get("PORT", 8000))
+
+    if host == "127.0.0.1":
+        threading.Thread(target=open_browser, daemon=True).start()
+
+    uvicorn.run("backend.app.main:app", host=host, port=port, reload=False)
+

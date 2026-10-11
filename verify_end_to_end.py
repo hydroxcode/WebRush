@@ -56,6 +56,9 @@ def run_tests():
     assert created["sentiment"] == "negative"
     assert created["sentiment_score"] < 0
     print(f"  -> Passed! Created #{created['id']} | Sentiment: {created['sentiment']} (Score: {created['sentiment_score']}) | Urgency: {created['urgency']}")
+    del_res = client.delete(f"/api/feedback/{created['id']}")
+    assert del_res.status_code == 200
+    print(f"  -> Test feedback #{created['id']} cleaned up (database restored to clean 7,000 records).")
 
     # 5. Test Recommendations & Evidence Citations
     print("\n[5] Testing Decision Recommendations (/api/recommendations)...")

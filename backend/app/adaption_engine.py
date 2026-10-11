@@ -204,18 +204,28 @@ class AdaptionEngine:
             })
 
         # Post-pipeline Quality Evaluation Lift
-        # With deduplication + reasoning traces + blueprint constraints, quality score increases substantially
-        quality_score_after = min(9.6, round(initial_eval["quality_score"] + 2.4, 1))
-        letter_grade_after = "A+" if quality_score_after >= 9.2 else "A"
-        domain_percentile_after = min(98.8, round(initial_eval["domain_percentile"] + 26.5, 1))
+        # Formulate adapted DataFrame and compute actual measured evaluation metrics
+        adapted_df = pd.DataFrame([
+            {
+                "review": r["adapted_prompt"],
+                "category": r["category"]
+            }
+            for r in adapted_records
+        ])
+        post_eval = self.evaluate_dataset_quality(adapted_df)
+        quality_score_after = post_eval["quality_score"]
+        letter_grade_after = post_eval["letter_grade"]
+        domain_percentile_after = post_eval["domain_percentile"]
 
         # Check Official Adaption SDK Connection
         sdk_connected = False
         if self.client:
             try:
-                # Test connectivity
+                # Test live connectivity using the official Adaption SDK
+                self.client.datasets.list()
                 sdk_connected = True
-            except Exception:
+            except Exception as e:
+                logger.info(f"Adaption SDK cloud verification note: {e}")
                 sdk_connected = False
 
         return {

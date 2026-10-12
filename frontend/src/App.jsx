@@ -12,7 +12,30 @@ import ReportModal from './components/ReportModal';
 import { fetchAnalyticsSummary, resetSampleData } from './services/api';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('overview');
+  const getInitialTab = () => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash.replace('#', '');
+      if (['overview', 'feedback', 'adaption', 'recommendations', 'issues'].includes(hash)) {
+        return hash;
+      }
+      const params = new URLSearchParams(window.location.search);
+      const tabParam = params.get('tab');
+      if (tabParam && ['overview', 'feedback', 'adaption', 'recommendations', 'issues'].includes(tabParam)) {
+        return tabParam;
+      }
+    }
+    return 'overview';
+  };
+
+  const [activeTab, setActiveTabState] = useState(getInitialTab);
+
+  const setActiveTab = (tab) => {
+    setActiveTabState(tab);
+    if (typeof window !== 'undefined') {
+      window.location.hash = tab;
+    }
+  };
+
   const [stats, setStats] = useState(null);
   const [isResetting, setIsResetting] = useState(false);
 
@@ -32,6 +55,15 @@ export default function App() {
 
   useEffect(() => {
     loadSummary();
+
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (['overview', 'feedback', 'adaption', 'recommendations', 'issues'].includes(hash)) {
+        setActiveTabState(hash);
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   const handleResetSample = async () => {
@@ -49,14 +81,23 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-100 flex flex-col font-sans relative selection:bg-sky-500/30 selection:text-sky-200">
-      {/* Atmospheric Fluid Ambient Glow Orbs */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
-        <div className="absolute -top-32 -left-32 w-[550px] h-[550px] rounded-full bg-gradient-to-br from-sky-500/20 via-indigo-600/15 to-transparent blur-[120px] animate-ambient-1" />
-        <div className="absolute top-1/4 -right-32 w-[500px] h-[500px] rounded-full bg-gradient-to-bl from-purple-500/15 via-pink-600/10 to-transparent blur-[130px] animate-ambient-2" />
-        <div className="absolute -bottom-32 left-1/3 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-cyan-500/15 via-blue-600/10 to-transparent blur-[140px] animate-ambient-1" />
-        {/* Subtle glass micro-grid pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:28px_28px] opacity-60" />
+    <div className="min-h-screen text-slate-100 flex flex-col font-sans relative selection:bg-sky-500/40 selection:text-white bg-[#060c1e]">
+      {/* Dynamic Liquid Aurora Atmosphere */}
+      <div 
+        className="fixed inset-0 pointer-events-none overflow-hidden z-0" 
+        aria-hidden="true"
+        style={{
+          background: 'radial-gradient(circle at 12% 18%, rgba(14, 165, 233, 0.22) 0%, transparent 40%), radial-gradient(circle at 88% 16%, rgba(139, 92, 246, 0.26) 0%, transparent 42%), radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.16) 0%, transparent 50%), radial-gradient(circle at 82% 86%, rgba(217, 70, 239, 0.22) 0%, transparent 45%), radial-gradient(circle at 18% 82%, rgba(20, 184, 166, 0.20) 0%, transparent 42%), #060c1e'
+        }}
+      >
+        {/* Floating Glowing Fluid Orbs */}
+        <div className="absolute -top-24 -left-24 w-[620px] h-[620px] rounded-full bg-gradient-to-tr from-cyan-400/45 via-sky-500/35 to-blue-600/20 blur-[85px] animate-ambient-1" />
+        <div className="absolute top-1/4 -right-24 w-[660px] h-[660px] rounded-full bg-gradient-to-bl from-purple-500/45 via-violet-600/35 to-indigo-700/20 blur-[90px] animate-ambient-2" />
+        <div className="absolute -bottom-24 left-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-emerald-400/30 via-teal-500/30 to-cyan-600/20 blur-[85px] animate-ambient-3" />
+        <div className="absolute top-2/3 right-1/4 w-[480px] h-[480px] rounded-full bg-gradient-to-tl from-fuchsia-500/30 via-pink-600/25 to-purple-600/15 blur-[80px] animate-ambient-1" />
+        
+        {/* Apple-style Tech Dot Matrix Texture */}
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:24px_24px] opacity-70" />
       </div>
 
       {/* App Shell */}
@@ -82,58 +123,58 @@ export default function App() {
 
           {/* Content View */}
           <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full">
-          {activeTab === 'overview' && (
-            <DashboardOverview 
-              stats={stats} 
-              onNavigateTab={(tab) => setActiveTab(tab)} 
-            />
-          )}
+            {activeTab === 'overview' && (
+              <DashboardOverview 
+                stats={stats} 
+                onNavigateTab={(tab) => setActiveTab(tab)} 
+              />
+            )}
 
-          {activeTab === 'feedback' && (
-            <FeedbackExplorer
-              onOpenAddModal={() => setIsAddModalOpen(true)}
-              onOpenUploadModal={() => setIsUploadModalOpen(true)}
-              onPromoteToIssue={() => setActiveTab('issues')}
-            />
-          )}
+            {activeTab === 'feedback' && (
+              <FeedbackExplorer
+                onOpenAddModal={() => setIsAddModalOpen(true)}
+                onOpenUploadModal={() => setIsUploadModalOpen(true)}
+                onPromoteToIssue={() => setActiveTab('issues')}
+              />
+            )}
 
-          {activeTab === 'adaption' && (
-            <AdaptionStudio />
-          )}
+            {activeTab === 'adaption' && (
+              <AdaptionStudio />
+            )}
 
-          {activeTab === 'recommendations' && (
-            <RecommendationHub 
-              onNavigateTab={(tab) => setActiveTab(tab)} 
-            />
-          )}
+            {activeTab === 'recommendations' && (
+              <RecommendationHub 
+                onNavigateTab={(tab) => setActiveTab(tab)} 
+              />
+            )}
 
-          {activeTab === 'issues' && (
-            <IssueTracker />
-          )}
-        </main>
-      </div>
+            {activeTab === 'issues' && (
+              <IssueTracker />
+            )}
+          </main>
+        </div>
 
-      {/* Global Interactive Modals */}
-      <AddFeedbackModal
-        isOpen={isAddModalOpen}
-        onClose={() => setIsAddModalOpen(false)}
-        onFeedbackAdded={() => {
-          loadSummary();
-        }}
-      />
+        {/* Global Interactive Modals */}
+        <AddFeedbackModal
+          isOpen={isAddModalOpen}
+          onClose={() => setIsAddModalOpen(false)}
+          onFeedbackAdded={() => {
+            loadSummary();
+          }}
+        />
 
-      <UploadCsvModal
-        isOpen={isUploadModalOpen}
-        onClose={() => setIsUploadModalOpen(false)}
-        onCsvUploaded={() => {
-          loadSummary();
-        }}
-      />
+        <UploadCsvModal
+          isOpen={isUploadModalOpen}
+          onClose={() => setIsUploadModalOpen(false)}
+          onCsvUploaded={() => {
+            loadSummary();
+          }}
+        />
 
-      <ReportModal
-        isOpen={isReportModalOpen}
-        onClose={() => setIsReportModalOpen(false)}
-      />
+        <ReportModal
+          isOpen={isReportModalOpen}
+          onClose={() => setIsReportModalOpen(false)}
+        />
       </div>
     </div>
   );

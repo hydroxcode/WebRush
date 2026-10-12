@@ -122,7 +122,7 @@ export default function AdaptionStudio() {
         <button
           onClick={handleRunPipeline}
           disabled={isRunningPipeline}
-          className="liquid-glass-btn-primary flex items-center justify-center gap-2 px-6 py-3 rounded-2xl text-white font-semibold text-sm shadow-xl shadow-purple-600/30 active:scale-95 transition-all disabled:opacity-50"
+          className="liquid-glass-btn-primary glass-btn-interactive flex items-center justify-center gap-2 px-6 py-3 rounded-2xl text-white font-semibold text-sm shadow-xl shadow-purple-600/30 transition-all disabled:opacity-50"
         >
           {isRunningPipeline ? (
             <>
@@ -374,7 +374,7 @@ export default function AdaptionStudio() {
             <button
               onClick={handleTestSdk}
               disabled={isTestingSdk}
-              className="liquid-glass-btn specular-rim px-4 py-2 rounded-xl bg-indigo-600/80 hover:bg-indigo-500/90 text-white text-xs font-semibold whitespace-nowrap active:scale-95 transition-all disabled:opacity-50 border border-indigo-400/30"
+              className="liquid-glass-btn specular-rim glass-btn-interactive px-4 py-2 rounded-xl bg-indigo-600/80 hover:bg-indigo-500/90 text-white text-xs font-semibold whitespace-nowrap transition-all disabled:opacity-50 border border-indigo-400/30"
             >
               {isTestingSdk ? 'Verifying...' : 'Verify SDK'}
             </button>

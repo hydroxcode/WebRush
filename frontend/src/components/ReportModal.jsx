@@ -23,7 +23,7 @@ export default function ReportModal({ isOpen, onClose }) {
 
         <button
           onClick={onClose}
-          className="liquid-glass-btn specular-rim absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl border border-white/10 active:scale-95 transition-all"
+          className="liquid-glass-btn glass-btn-interactive specular-rim absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl border border-white/10 active:scale-95 transition-all"
         >
           <X className="w-4 h-4" />
         </button>
@@ -55,7 +55,7 @@ export default function ReportModal({ isOpen, onClose }) {
             <a
               href={downloadReportUrl('pdf')}
               download="InsightFlow_Executive_Report.pdf"
-              className="liquid-glass-btn-primary flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-white font-semibold transition-all whitespace-nowrap self-end sm:self-center active:scale-95 shadow-md shadow-sky-500/20"
+              className="liquid-glass-btn-primary glass-btn-interactive flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-white font-semibold transition-all whitespace-nowrap self-end sm:self-center active:scale-95 shadow-md shadow-sky-500/20"
             >
               <FileDown className="w-3.5 h-3.5" />
               <span>Download PDF</span>
@@ -78,7 +78,7 @@ export default function ReportModal({ isOpen, onClose }) {
             <a
               href={downloadReportUrl('csv')}
               download="InsightFlow_Feedback_Dataset.csv"
-              className="liquid-glass-btn specular-rim flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-slate-200 border border-white/10 font-semibold transition-all whitespace-nowrap self-end sm:self-center active:scale-95"
+              className="liquid-glass-btn glass-btn-interactive specular-rim flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-slate-200 border border-white/10 font-semibold transition-all whitespace-nowrap self-end sm:self-center active:scale-95"
             >
               <FileDown className="w-3.5 h-3.5 text-emerald-400" />
               <span>Download CSV</span>
@@ -101,7 +101,7 @@ export default function ReportModal({ isOpen, onClose }) {
             <a
               href={downloadReportUrl('csv-issues')}
               download="InsightFlow_Tracked_Issues.csv"
-              className="liquid-glass-btn specular-rim flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-slate-200 border border-white/10 font-semibold transition-all whitespace-nowrap self-end sm:self-center active:scale-95"
+              className="liquid-glass-btn glass-btn-interactive specular-rim flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-slate-200 border border-white/10 font-semibold transition-all whitespace-nowrap self-end sm:self-center active:scale-95"
             >
               <FileDown className="w-3.5 h-3.5 text-amber-400" />
               <span>Download CSV</span>
@@ -124,7 +124,7 @@ export default function ReportModal({ isOpen, onClose }) {
             <a
               href={downloadReportUrl('json')}
               download="InsightFlow_Intelligence_Report.json"
-              className="liquid-glass-btn specular-rim flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-slate-200 border border-white/10 font-semibold transition-all whitespace-nowrap self-end sm:self-center active:scale-95"
+              className="liquid-glass-btn glass-btn-interactive specular-rim flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-slate-200 border border-white/10 font-semibold transition-all whitespace-nowrap self-end sm:self-center active:scale-95"
             >
               <FileDown className="w-3.5 h-3.5 text-purple-400" />
               <span>Download JSON</span>
@@ -135,7 +135,7 @@ export default function ReportModal({ isOpen, onClose }) {
         <div className="flex items-center justify-end pt-4 border-t border-white/[0.08]">
           <button
             onClick={onClose}
-            className="liquid-glass-btn specular-rim px-5 py-2 rounded-xl text-white font-semibold text-xs border border-white/10 transition-all active:scale-95"
+            className="liquid-glass-btn glass-btn-interactive specular-rim px-5 py-2 rounded-xl text-white font-semibold text-xs border border-white/10 transition-all active:scale-95"
           >
             Close
           </button>

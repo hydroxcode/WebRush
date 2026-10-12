@@ -358,7 +358,7 @@ export default function DashboardOverview({ stats, onNavigateTab }) {
           </div>
           <button
             onClick={() => onNavigateTab('recommendations')}
-            className="liquid-glass-btn specular-rim flex items-center gap-1.5 text-xs font-bold text-sky-300 px-3.5 py-1.5 rounded-xl border border-sky-400/30 active:scale-95 transition-all"
+            className="liquid-glass-btn glass-btn-interactive specular-rim flex items-center gap-1.5 text-xs font-bold text-sky-300 px-3.5 py-1.5 rounded-xl border border-sky-400/30 active:scale-95 transition-all"
           >
             <span>View Prioritized Actions</span>
             <ArrowRight className="w-3.5 h-3.5" />

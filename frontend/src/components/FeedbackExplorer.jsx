@@ -114,14 +114,14 @@ export default function FeedbackExplorer({
         <div className="flex items-center gap-2.5">
           <button
             onClick={onOpenAddModal}
-            className="liquid-glass-btn-primary px-3.5 py-2 rounded-xl text-xs font-semibold text-white flex items-center gap-1.5 shadow-lg shadow-sky-500/20 active:scale-95"
+            className="liquid-glass-btn-primary glass-btn-interactive px-3.5 py-2 rounded-xl text-xs font-semibold text-white flex items-center gap-1.5 shadow-lg shadow-sky-500/20"
           >
             <PlusCircle className="w-4 h-4" />
             <span>Add Feedback</span>
           </button>
           <button
             onClick={onOpenUploadModal}
-            className="liquid-glass-btn specular-rim px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-200 flex items-center gap-1.5 border border-white/10 active:scale-95"
+            className="liquid-glass-btn specular-rim glass-btn-interactive px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-200 flex items-center gap-1.5 border border-white/10"
           >
             <UploadCloud className="w-4 h-4 text-indigo-400" />
             <span>Import CSV</span>
@@ -148,7 +148,7 @@ export default function FeedbackExplorer({
 
           <button
             type="submit"
-            className="liquid-glass-btn specular-rim w-full md:w-auto px-5 py-2.5 text-white text-xs font-semibold rounded-xl border border-white/10 hover:border-white/20 active:scale-95 transition-all"
+            className="liquid-glass-btn specular-rim glass-btn-interactive w-full md:w-auto px-5 py-2.5 text-white dark:text-white text-xs font-semibold rounded-xl border border-white/10 hover:border-white/20 transition-all"
           >
             Search Records
           </button>
@@ -164,10 +164,10 @@ export default function FeedbackExplorer({
               <button
                 key={cat}
                 onClick={() => { setCategoryFilter(cat); setPage(1); }}
-                className={`text-xs px-3 py-1.5 rounded-xl border transition-all ${
+                className={`text-xs px-3 py-1.5 rounded-xl border glass-btn-interactive transition-all ${
                   categoryFilter === cat
-                    ? 'bg-sky-500/20 text-sky-300 border-sky-400/40 shadow-sm shadow-sky-500/20 font-semibold backdrop-blur-md'
-                    : 'liquid-glass-subtle text-slate-400 border-white/5 hover:border-white/15 hover:text-slate-200'
+                    ? 'bg-sky-500/20 text-sky-400 dark:text-sky-300 border-sky-400/40 shadow-sm shadow-sky-500/20 font-semibold backdrop-blur-md'
+                    : 'liquid-glass-subtle text-slate-500 dark:text-slate-400 border-white/5 hover:border-white/15 hover:text-slate-900 dark:hover:text-slate-200'
                 }`}
               >
                 {cat}
@@ -308,7 +308,7 @@ export default function FeedbackExplorer({
                       <div className="flex items-center justify-end gap-1 opacity-70 group-hover:opacity-100 transition-opacity">
                         <button
                           onClick={() => handleDelete(fb.id)}
-                          className="p-1.5 rounded-lg hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 border border-transparent hover:border-rose-500/30 transition-all"
+                          className="glass-btn-interactive p-1.5 rounded-lg hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 border border-transparent hover:border-rose-500/30 transition-all"
                           title="Delete entry"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
@@ -323,17 +323,17 @@ export default function FeedbackExplorer({
         </div>
 
         {/* Pagination Bar */}
-        <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 bg-slate-950/60 backdrop-blur-md border-t border-white/[0.08] text-xs">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 bg-slate-950/60 dark:bg-slate-950/60 backdrop-blur-md border-t border-white/[0.08] text-xs">
           <div className="flex items-center gap-2 text-slate-400">
             <span>Rows per page:</span>
             <select
               value={pageSize}
               onChange={(e) => { setPageSize(Number(e.target.value)); setPage(1); }}
-              className="liquid-glass-input rounded-lg px-2 py-1 text-xs text-slate-200 cursor-pointer"
+              className="liquid-glass-input rounded-lg px-2 py-1 text-xs text-slate-200 dark:text-slate-200 cursor-pointer"
             >
-              <option value="15" className="bg-slate-900">15</option>
-              <option value="30" className="bg-slate-900">30</option>
-              <option value="50" className="bg-slate-900">50</option>
+              <option value="15" className="bg-slate-900 dark:bg-slate-900">15</option>
+              <option value="30" className="bg-slate-900 dark:bg-slate-900">30</option>
+              <option value="50" className="bg-slate-900 dark:bg-slate-900">50</option>
             </select>
           </div>
 
@@ -341,17 +341,17 @@ export default function FeedbackExplorer({
             <button
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page <= 1}
-              className="liquid-glass-btn specular-rim p-2 rounded-xl text-slate-300 disabled:opacity-30 disabled:pointer-events-none transition-all active:scale-95"
+              className="liquid-glass-btn specular-rim glass-btn-interactive p-2 rounded-xl text-slate-300 disabled:opacity-30 disabled:pointer-events-none transition-all"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
-            <span className="text-slate-300 font-mono px-3 py-1 rounded-xl liquid-glass-subtle border border-white/5 text-xs">
+            <span className="text-slate-300 dark:text-slate-300 font-mono px-3 py-1 rounded-xl liquid-glass-subtle border border-white/5 text-xs">
               {page} / {pages}
             </span>
             <button
               onClick={() => setPage((p) => Math.min(pages, p + 1))}
               disabled={page >= pages}
-              className="liquid-glass-btn specular-rim p-2 rounded-xl text-slate-300 disabled:opacity-30 disabled:pointer-events-none transition-all active:scale-95"
+              className="liquid-glass-btn specular-rim glass-btn-interactive p-2 rounded-xl text-slate-300 disabled:opacity-30 disabled:pointer-events-none transition-all"
             >
               <ChevronRight className="w-4 h-4" />
             </button>

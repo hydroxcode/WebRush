@@ -117,7 +117,7 @@ export default function IssueTracker() {
           <a
             href={downloadReportUrl('csv-issues')}
             download="InsightFlow_Tracked_Issues.csv"
-            className="liquid-glass-btn specular-rim flex items-center gap-2 px-4 py-2 rounded-xl text-slate-200 border border-white/10 text-xs font-semibold active:scale-95 transition-all"
+            className="liquid-glass-btn specular-rim glass-btn-interactive flex items-center gap-2 px-4 py-2 rounded-xl text-slate-200 border border-white/10 text-xs font-semibold transition-all"
           >
             <FileSpreadsheet className="w-4 h-4 text-emerald-400" />
             <span>Export Issues CSV</span>
@@ -168,10 +168,10 @@ export default function IssueTracker() {
             <button
               key={st}
               onClick={() => setStatusFilter(st)}
-              className={`text-xs px-3 py-1.5 rounded-xl border transition-all ${
+              className={`text-xs px-3 py-1.5 rounded-xl border glass-btn-interactive transition-all ${
                 statusFilter === st
-                  ? 'bg-sky-500/20 text-sky-300 border-sky-400/40 shadow-sm shadow-sky-500/20 font-semibold backdrop-blur-md'
-                  : 'liquid-glass-subtle text-slate-400 border-white/5 hover:border-white/15 hover:text-slate-200'
+                  ? 'bg-sky-500/20 text-sky-400 dark:text-sky-300 border-sky-400/40 shadow-sm shadow-sky-500/20 font-semibold backdrop-blur-md'
+                  : 'liquid-glass-subtle text-slate-500 dark:text-slate-400 border-white/5 hover:border-white/15 hover:text-slate-900 dark:hover:text-slate-200'
               }`}
             >
               {st}
@@ -286,7 +286,7 @@ export default function IssueTracker() {
                           />
                           <button
                             onClick={() => handleSaveNotes(issue.id)}
-                            className="liquid-glass-btn-primary px-2.5 py-1 rounded-lg text-white text-[10px] font-semibold active:scale-95"
+                            className="liquid-glass-btn-primary glass-btn-interactive px-2.5 py-1 rounded-lg text-white text-[10px] font-semibold"
                           >
                             Save
                           </button>
@@ -306,7 +306,7 @@ export default function IssueTracker() {
                     <td className="py-3.5 px-4 text-right">
                       <button
                         onClick={() => handleDelete(issue.id)}
-                        className="p-1.5 rounded-lg hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 border border-transparent hover:border-rose-500/30 transition-all"
+                        className="glass-btn-interactive p-1.5 rounded-lg hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 border border-transparent hover:border-rose-500/30 transition-all"
                         title="Delete issue"
                       >
                         <Trash2 className="w-3.5 h-3.5" />

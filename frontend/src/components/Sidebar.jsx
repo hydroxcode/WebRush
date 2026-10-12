@@ -18,35 +18,35 @@ export default function Sidebar({ activeTab, setActiveTab, onResetSample, isRese
       label: 'Executive Overview',
       icon: LayoutDashboard,
       badge: 'Live',
-      badgeColor: 'bg-emerald-500/10 text-emerald-300 border-emerald-400/20'
+      badgeColor: 'bg-emerald-500/15 text-emerald-300 border-emerald-400/30 dark:bg-emerald-500/10 dark:text-emerald-300'
     },
     {
       id: 'feedback',
       label: 'Feedback Explorer',
       icon: Search,
       badge: '7,000',
-      badgeColor: 'bg-white/[0.06] text-slate-300 border-white/10'
+      badgeColor: 'bg-slate-500/15 text-slate-700 dark:text-slate-300 border-slate-400/20'
     },
     {
       id: 'adaption',
       label: 'Adaption Studio',
       icon: Cpu,
       badge: 'A+ Grade',
-      badgeColor: 'bg-purple-500/10 text-purple-300 border-purple-400/25'
+      badgeColor: 'bg-purple-500/15 text-purple-600 dark:text-purple-300 border-purple-400/30'
     },
     {
       id: 'recommendations',
       label: 'Decision & Actions',
       icon: Lightbulb,
       badge: 'P0 Rank',
-      badgeColor: 'bg-rose-500/10 text-rose-300 border-rose-400/25'
+      badgeColor: 'bg-rose-500/15 text-rose-600 dark:text-rose-300 border-rose-400/30'
     },
     {
       id: 'issues',
       label: 'Issue Tracker',
       icon: CheckSquare,
       badge: 'Workflow',
-      badgeColor: 'bg-sky-500/10 text-sky-300 border-sky-400/25'
+      badgeColor: 'bg-sky-500/15 text-sky-600 dark:text-sky-300 border-sky-400/30'
     }
   ];
 
@@ -66,22 +66,22 @@ export default function Sidebar({ activeTab, setActiveTab, onResetSample, isRese
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id)}
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all relative group ${
+                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold sidebar-nav-btn glass-btn-interactive relative group transition-all ${
                     isActive
-                      ? 'liquid-glass-glow text-white shadow-lg shadow-sky-500/10'
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.04]'
+                      ? 'liquid-glass-glow text-white shadow-lg shadow-sky-500/15'
+                      : 'text-slate-400 hover:text-slate-200 dark:hover:text-white hover:bg-white/[0.04]'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Icon className={`w-4 h-4 transition-colors ${isActive ? 'text-sky-400' : 'text-slate-400 group-hover:text-slate-200'}`} />
-                    <span>{item.label}</span>
+                    <Icon className={`w-4 h-4 transition-colors flex-shrink-0 ${isActive ? 'text-sky-400' : 'text-slate-400 group-hover:text-slate-200'}`} />
+                    <span className="truncate">{item.label}</span>
                   </div>
                   {item.badge && (
-                    <span className={`text-[10px] font-mono font-medium px-2 py-0.5 rounded-full border shadow-sm ${item.badgeColor}`}>
+                    <span className={`text-[10px] font-mono font-medium px-2 py-0.5 rounded-full border shadow-sm flex-shrink-0 ml-2 ${item.badgeColor}`}>
                       {item.badge}
                     </span>
                   )}
-                  {/* Subtle active left glow pill */}
+                  {/* Active indicator bar */}
                   {isActive && (
                     <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r-full bg-gradient-to-b from-sky-400 to-indigo-500" />
                   )}
@@ -92,7 +92,7 @@ export default function Sidebar({ activeTab, setActiveTab, onResetSample, isRese
         </div>
 
         {/* Adaption Engine Glass Status Widget */}
-        <div className="p-4 rounded-2xl liquid-glass-elevated border border-purple-500/20 relative overflow-hidden group">
+        <div className="p-4 rounded-2xl liquid-glass-elevated border border-purple-500/25 relative overflow-hidden group">
           {/* Subtle purple glass glow */}
           <div className="absolute -top-12 -right-12 w-28 h-28 rounded-full bg-purple-500/15 blur-2xl pointer-events-none group-hover:bg-purple-500/25 transition-colors" />
 
@@ -121,7 +121,7 @@ export default function Sidebar({ activeTab, setActiveTab, onResetSample, isRese
         <button
           onClick={onResetSample}
           disabled={isResetting}
-          className="w-full liquid-glass-btn flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold rounded-xl text-slate-300 disabled:opacity-40"
+          className="w-full liquid-glass-btn glass-btn-interactive flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold rounded-xl text-slate-300 disabled:opacity-40"
           title="Reload the 7,000 customer feedback records"
         >
           <RotateCcw className={`w-3.5 h-3.5 text-slate-400 ${isResetting ? 'animate-spin' : ''}`} />

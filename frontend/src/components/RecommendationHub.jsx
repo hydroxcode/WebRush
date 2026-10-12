@@ -158,10 +158,10 @@ export default function RecommendationHub({ onNavigateTab }) {
                     <button
                       onClick={() => handleTrackIssue(rec)}
                       disabled={savingId === rec.id}
-                      className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold transition-all border ${
+                      className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold glass-btn-interactive transition-all border ${
                         rec.is_saved_issue
-                          ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40 hover:bg-emerald-500/30 shadow-md shadow-emerald-900/30'
-                          : 'liquid-glass-btn specular-rim text-slate-200 border-white/10 active:scale-95'
+                          ? 'bg-emerald-500/20 text-emerald-400 dark:text-emerald-300 border-emerald-500/40 hover:bg-emerald-500/30 shadow-md shadow-emerald-900/30'
+                          : 'liquid-glass-btn specular-rim text-slate-200 border-white/10'
                       }`}
                     >
                       {rec.is_saved_issue ? (

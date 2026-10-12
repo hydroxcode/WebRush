@@ -45,7 +45,7 @@ export default function AddFeedbackModal({ isOpen, onClose, onFeedbackAdded }) {
 
         <button
           onClick={onClose}
-          className="liquid-glass-btn specular-rim absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl border border-white/10 active:scale-95 transition-all"
+          className="liquid-glass-btn glass-btn-interactive specular-rim absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl border border-white/10 active:scale-95 transition-all"
         >
           <X className="w-4 h-4" />
         </button>
@@ -113,14 +113,14 @@ export default function AddFeedbackModal({ isOpen, onClose, onFeedbackAdded }) {
               <button
                 type="button"
                 onClick={onClose}
-                className="liquid-glass-btn specular-rim px-4 py-2 rounded-xl text-slate-400 hover:text-white border border-white/10 font-semibold transition-all active:scale-95"
+                className="liquid-glass-btn glass-btn-interactive specular-rim px-4 py-2 rounded-xl text-slate-400 hover:text-white border border-white/10 font-semibold transition-all active:scale-95"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={isSubmitting || !review.trim()}
-                className="liquid-glass-btn-primary px-5 py-2.5 rounded-xl text-white font-semibold transition-all disabled:opacity-50 active:scale-95 shadow-lg shadow-sky-500/25"
+                className="liquid-glass-btn-primary glass-btn-interactive px-5 py-2.5 rounded-xl text-white font-semibold transition-all disabled:opacity-50 active:scale-95 shadow-lg shadow-sky-500/25"
               >
                 {isSubmitting ? 'Analyzing & Saving...' : 'Analyze & Save'}
               </button>

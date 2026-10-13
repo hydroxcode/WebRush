@@ -45,14 +45,26 @@ st.set_page_config(
 )
 
 # Ensure database schema exists and initial dataset is loaded
-Base.metadata.create_all(bind=engine)
+try:
+    Base.metadata.create_all(bind=engine)
+except Exception as e:
+    import tempfile
+    from sqlalchemy import create_engine as create_eng
+    fallback_path = os.path.join(tempfile.gettempdir(), "insightflow.db")
+    fallback_url = f"sqlite:////{fallback_path.lstrip('/')}" if fallback_path.startswith("/") else f"sqlite:///{fallback_path}"
+    engine = create_eng(fallback_url, connect_args={"check_same_thread": False, "timeout": 30})
+    Base.metadata.create_all(bind=engine)
+    SessionLocal.configure(bind=engine)
 
 def get_db():
     return SessionLocal()
 
 # Initial dataset seeding if database is empty
-with get_db() as init_db:
-    load_initial_dataset(init_db)
+try:
+    with get_db() as init_db:
+        load_initial_dataset(init_db)
+except Exception as e:
+    st.warning(f"Note: Initial dataset verification: {e}")
 
 # -----------------------------------------------------------------------------
 # LIQUID GLASS CUSTOM STYLING (DARK / APPLE-INSPIRED AESTHETIC)

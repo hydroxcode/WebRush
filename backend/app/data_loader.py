@@ -9,10 +9,13 @@ from .recommendations import generate_evidence_backed_recommendations
 CSV_FILENAME = "BuildBattle_2026_Customer_Feedback_Dataset.csv"
 
 def find_csv_path() -> str:
-    # Check current workspace, parent dirs
+    # Check current workspace, parent dirs, container mount dirs
     candidates = [
         os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), CSV_FILENAME),
         os.path.join(os.getcwd(), CSV_FILENAME),
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), CSV_FILENAME),
+        os.path.join("/mount/src/webrush", CSV_FILENAME),
+        os.path.join("/app", CSV_FILENAME),
         os.path.join(r"C:\Users\Abhishek Nandan\Downloads", CSV_FILENAME),
     ]
     for c in candidates:
